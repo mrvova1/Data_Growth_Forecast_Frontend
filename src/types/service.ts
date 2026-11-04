@@ -12,8 +12,5 @@ export interface Service {
   likes_count: number;
   is_creator: 0 | 1;
   is_liked: 0 | 1;
-  /** Поле используется только mock-коллекцией для фильтра темы. */
   category?: string;
 }
-
-export type ServiceSort = 'newest' | 'oldest' | 'name' | 'growth';

@@ -1,4 +1,6 @@
 import type { ReactNode } from 'react';
+import { useLocation } from 'react-router-dom';
+
 import { BottomNav } from './BottomNav';
 
 interface AppLayoutProps {
@@ -6,6 +8,9 @@ interface AppLayoutProps {
 }
 
 export function AppLayout({ children }: AppLayoutProps) {
+  const { pathname } = useLocation();
+  const isFeedPage = pathname.startsWith('/feed');
+
   return (
     <div className="phone-shell">
       <header className="app-topline">
@@ -16,7 +21,11 @@ export function AppLayout({ children }: AppLayoutProps) {
         </div>
         <span className="guest-chip">ГОСТЬ</span>
       </header>
-      <main className="app-screen">{children}</main>
+
+      <main className={isFeedPage ? 'app-screen app-screen--feed' : 'app-screen'}>
+        {children}
+      </main>
+
       <BottomNav />
     </div>
   );

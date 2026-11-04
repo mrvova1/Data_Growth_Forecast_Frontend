@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 export function BottomNav() {
   const { pathname } = useLocation();
   const feedActive = pathname.startsWith('/feed');
-  const tileActive = pathname.startsWith('/tile') || pathname.startsWith('/service');
+  const tileActive = pathname.startsWith('/tile');
 
   return (
     <Nav className="bottom-nav" aria-label="Основная навигация">
